@@ -1,21 +1,19 @@
-import java.util.Scanner; 
+class ThreeException extends Exception {}
+
 public class MyExcept {
-
-	public static void main(String[] args) {
-		int[] m = {-1,0,1}; 
-        int a = 1; 
-        Scanner sc = new Scanner(System.in);        
-        try { 
-            a = sc.nextInt();     
-            m[a-1] = 4/a;
-            System.out.println(m[a]); 
-        } catch (ArithmeticException e) { 
-            System.out.println("Произошла недопустимая арифметическая операция"); 
-        } catch (ArrayIndexOutOfBoundsException e) { 
-            System.out.println("Обращение по недопустимому индексу массива");       
-        } catch (Exception e) { 
-            System.out.println("Произошло ещё какое-то исключение"); 
-        } 
-	}
-
+  static int count = 0;
+  public static void main(String[] args) {
+    while(true) {
+      try {
+        if(count++ == 0)
+          throw new ThreeException();
+        System.out.println("No exception");
+      } catch(ThreeException e) {
+        System.err.println("ThreeException");
+      } finally {
+        System.err.println("In finally clause");
+        if(count == 2) break;
+      }
+    }
+  }
 }
