@@ -33,5 +33,9 @@ public class Part1A {
 	public void setItem3A(Item3A item3a) {
 		Item3A = item3a;
 	}
+	@Override
+	public String toString() {
+		return "Part1A [Item1=" + Item1 + ", Item2A=" + Item2A + ", Item2B=" + Item2B + ", Item3A=" + Item3A + "]";
+	}
 
 }

@@ -1,14 +1,24 @@
 package model;
 
-public class NoticeFiled {
-	private String States;
+import java.util.ArrayList;
 
-	public String getStates() {
-		return States;
+public class NoticeFiled {
+	private ArrayList<States> listStates = new ArrayList<States>();
+
+	public ArrayList<States> getListStates() {
+		return listStates;
 	}
 
-	public void setStates(String states) {
-		States = states;
+	public void setListStates(ArrayList<States> listStates) {
+		this.listStates = listStates;
+	}
+	
+	
+	public boolean add(States states){
+		return listStates.add(states);
+	}
+	public String toString() {
+        return "\nStates: "+listStates;
 	}
 
 }

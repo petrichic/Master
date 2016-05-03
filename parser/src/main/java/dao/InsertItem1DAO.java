@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import item.Item1;
+import model.IAPDFirmSECReport;
 
 
 public class InsertItem1DAO {
@@ -26,12 +27,11 @@ public class InsertItem1DAO {
 			for (int i = 0; i < 50; i++){
 			//for (int i = 0; i < itens1.size(); i++) {
 				stmt = con.prepareStatement("Insert into mydb.item1 VALUES(?,?,?,?,?,?)");
-				stmt.setInt(1, i + 1);
-				stmt.setString(2, items1.get(i).getQ1I());
-				stmt.setString(3, items1.get(i).getQ1M());
-				stmt.setString(4, items1.get(i).getQ1N());
-				stmt.setString(5, items1.get(i).getQ1O());
-				stmt.setInt(6, i + 1);
+				stmt.setInt(1, 0);
+				stmt.setString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem1().getQ1I());
+				stmt.setString(3, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem1().getQ1M());
+				stmt.setString(4, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem1().getQ1N());
+				stmt.setString(5, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem1().getQ1O());
 				stmt.executeUpdate();
 
 			}

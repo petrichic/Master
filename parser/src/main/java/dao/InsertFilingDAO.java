@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import model.Filing;
+import model.IAPDFirmSECReport;
 
 public class InsertFilingDAO {
 	public void insertFiling(ArrayList<Filing> filings) {
@@ -26,10 +27,10 @@ public class InsertFilingDAO {
 			for (int i = 0; i < 50; i++) {
 			//for (int i = 0; i < filings.size(); i++) {
 				stmt = con.prepareStatement("Insert into mydb.filing VALUES(?,?,?,?)");
-				stmt.setInt(1, i + 1);
-				Date Dt = new Date(filings.get(i).getDt().getTime()); 
+				stmt.setInt(1, 0);
+				Date Dt = new Date(IAPDFirmSECReport.getFirms().getListFirms().get(i).getFiling().getDt().getTime()); 
 				stmt.setDate(2, Dt);
-				Date FormVrsn = new Date(filings.get(i).getFormVrsn().getTime()); 
+				Date FormVrsn = new Date(IAPDFirmSECReport.getFirms().getListFirms().get(i).getFiling().getFormVrsn().getTime()); 
 				stmt.setDate(3, FormVrsn);
 				stmt.setInt(4, i+1);
 				stmt.executeUpdate();

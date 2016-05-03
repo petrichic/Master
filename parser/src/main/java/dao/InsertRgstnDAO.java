@@ -1,11 +1,13 @@
 package dao;
 import java.io.FileInputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import model.IAPDFirmSECReport;
 import model.Rgstn;
 
 public class InsertRgstnDAO {
@@ -23,11 +25,12 @@ public class InsertRgstnDAO {
 
 			for (int i = 0; i < rgstns.size(); i++) {
 				stmt = con.prepareStatement("Insert into mydb.rgstn VALUES(?,?,?,?,?)");
-				stmt.setInt(1, i + 1);
-				stmt.setString(2, rgstns.get(i).getFirmType());
-				stmt.setString(3, rgstns.get(i).getSt());
-				stmt.setString(4, rgstns.get(i).getDt());
-				stmt.setInt(5, i+1);
+				stmt.setInt(1, 0);
+				stmt.setString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getRgstn().getFirmType());
+				stmt.setString(3, IAPDFirmSECReport.getFirms().getListFirms().get(i).getRgstn().getSt());
+				Date Dt = new Date(IAPDFirmSECReport.getFirms().getListFirms().get(i).getRgstn().getDt().getTime());
+				stmt.setDate(4, Dt);
+				stmt.setInt(5, IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getId());
 				stmt.executeUpdate();
 
 			}

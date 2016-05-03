@@ -10,6 +10,10 @@ public class FormInfo {
 	public void setPart1A(Part1A part1a) {
 		Part1A = part1a;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "FormInfo [Part1A=" + Part1A + "]";
+	}
 	
 }

@@ -1,12 +1,22 @@
 package model;
 
 public class Info {
+	private int id;
 	private String sECRgnCD;
 	private String firmCrdNb;
 	private String sECNb;
 	private String busNm;
 	private String legalNm;
 	    
+	public Info( String sECRgnCD, String firmCrdNb, String sECNb, String busNm, String legalNm) {
+	      super();
+	      this.sECRgnCD = sECRgnCD;
+	      this.firmCrdNb = firmCrdNb;
+	      this.sECNb = sECNb;
+	      this.busNm = busNm;
+	      this.legalNm = legalNm;
+	   }
+	public Info(){};
 	    public String getsECRgnCD() {
 			return sECRgnCD;
 		}
@@ -37,10 +47,17 @@ public class Info {
 		public void setLegalNm(String legalNm) {
 			this.legalNm = legalNm;
 		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		} 
 
 	    @Override
 		public String toString() {
 			return "Info [sECRgnCD=" + sECRgnCD + ", firmCrdNb=" + firmCrdNb + ", sECNb=" + sECNb + ", busNm=" + busNm
 					+ ", legalNm=" + legalNm + "]";
-		}   
+		}
+  
 	}

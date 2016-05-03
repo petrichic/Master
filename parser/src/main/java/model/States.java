@@ -7,6 +7,7 @@ public class States {
 	private String st;
 	private Date dt;
 	private int infoid;
+	private int id_states;
 	
 	public String getRgltrCd() {
 		return rgltrCd;
@@ -35,6 +36,12 @@ public class States {
 	}
 	public void setInfoid(int infoid) {
 		this.infoid = infoid;
+	}
+	public int getId_states() {
+		return id_states;
+	}
+	public void setId_states(int id_states) {
+		this.id_states = id_states;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import model.IAPDFirmSECReport;
 import model.Info;
 
 public class InsertInfoDAO {
@@ -23,12 +24,12 @@ public class InsertInfoDAO {
 
 			for (int i = 0; i < infos.size(); i++) {
 				stmt = con.prepareStatement("Insert into mydb.info VALUES(?,?,?,?,?,?)");
-				stmt.setInt(1, i + 1);
-				stmt.setString(2, infos.get(i).getsECRgnCD());
-				stmt.setString(3, infos.get(i).getFirmCrdNb());
-				stmt.setString(4, infos.get(i).getsECNb());
-				stmt.setString(5, infos.get(i).getBusNm());
-				stmt.setString(6, infos.get(i).getLegalNm());
+				stmt.setInt(1, 0);
+				stmt.setString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getsECRgnCD());
+				stmt.setString(3, IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getFirmCrdNb());
+				stmt.setString(4, IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getsECNb());
+				stmt.setString(5, IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getBusNm());
+				stmt.setString(6, IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getLegalNm());
 				stmt.executeUpdate();
 
 			}

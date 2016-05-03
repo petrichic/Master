@@ -1,6 +1,8 @@
 package model;
 
 public class MainAddr {
+	private int id_mainAddr;
+	private int info_id;
 	private String strt1;
 	private String strt2;
 	private String city;
@@ -50,6 +52,19 @@ public class MainAddr {
 	}
 	public void setPhNb(String phNb) {
 		this.phNb = phNb;
+	}
+	
+	public int getId_mainAddr() {
+		return id_mainAddr;
+	}
+	public void setId_mainAddr(int id_mainAddr) {
+		this.id_mainAddr = id_mainAddr;
+	}
+	public int getInfo_id() {
+		return info_id;
+	}
+	public void setInfo_id(int info_id) {
+		this.info_id = info_id;
 	}
 	@Override
 	public String toString() {

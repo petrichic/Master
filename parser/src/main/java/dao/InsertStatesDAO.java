@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import model.IAPDFirmSECReport;
 import model.States;
 
 
@@ -26,15 +27,21 @@ public class InsertStatesDAO {
 
 			for (int i = 0; i < 50; i++) {
 				// for (int i = 0; i < states.size(); i++) {
-				stmt = con.prepareStatement("Insert into mydb.states VALUES(?,?,?,?,?)");
-				stmt.setInt(1, 0);
-				stmt.setString(2, states.get(i).getRgltrCd());
-				stmt.setString(3, states.get(i).getSt());
-				Date Dt = new Date(states.get(i).getDt().getTime());
-				stmt.setDate(4, Dt);
-				stmt.setInt(5, states.get(i).getInfoid());
-				stmt.executeUpdate();
-
+				for (int j = 0; j < IAPDFirmSECReport.getFirms().getListFirms().get(i).getNoticeFiled().getListStates()
+						.size(); j++) {
+					stmt = con.prepareStatement("Insert into mydb.states VALUES(?,?,?,?,?)");
+					stmt.setInt(1, 0);
+					stmt.setString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getNoticeFiled()
+							.getListStates().get(j).getRgltrCd());
+					stmt.setString(3, IAPDFirmSECReport.getFirms().getListFirms().get(i).getNoticeFiled()
+							.getListStates().get(j).getSt());
+					Date Dt = new Date(IAPDFirmSECReport.getFirms().getListFirms().get(i).getNoticeFiled()
+							.getListStates().get(j).getDt().getTime());
+					stmt.setDate(4, Dt);
+					// stmt.setInt(5, i+1);
+					stmt.setInt(5, IAPDFirmSECReport.getFirms().getListFirms().get(i).getNoticeFiled().getListStates().get(j).getInfoid());
+					stmt.executeUpdate();
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

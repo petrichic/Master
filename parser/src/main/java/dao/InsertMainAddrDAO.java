@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import model.IAPDFirmSECReport;
 import model.MainAddr;
 
 
@@ -24,15 +25,16 @@ public class InsertMainAddrDAO {
 
 			for (int i = 0; i < mainaddrs.size(); i++) {
 				stmt2 = con.prepareStatement("Insert into mydb.mainaddr VALUES(?,?,?,?,?,?,?,?,?)");
-				stmt2.setInt(1, i + 1);
-				stmt2.setString(2, mainaddrs.get(i).getStrt1());
-				stmt2.setString(3, mainaddrs.get(i).getStrt2());
-				stmt2.setString(4, mainaddrs.get(i).getCity());
-				stmt2.setString(5, mainaddrs.get(i).getState());
-				stmt2.setString(6, mainaddrs.get(i).getCntry());
-				stmt2.setString(7, mainaddrs.get(i).getPostlCd());
-				stmt2.setString(8, mainaddrs.get(i).getPhNb());
-				stmt2.setInt(9, i + 1);
+				stmt2.setInt(1, 0);
+				stmt2.setString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getStrt1());
+				stmt2.setString(3, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getStrt2());
+				stmt2.setString(4, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getCity());
+				stmt2.setString(5, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getState());
+				stmt2.setString(6, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getCntry());
+				stmt2.setString(7, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getPostlCd());
+				stmt2.setString(8, IAPDFirmSECReport.getFirms().getListFirms().get(i).getMainaddr().getPhNb());
+				int j = IAPDFirmSECReport.getFirms().getListFirms().get(i).getInfo().getId();
+				stmt2.setInt(9, j);
 				stmt2.executeUpdate();
 
 			}

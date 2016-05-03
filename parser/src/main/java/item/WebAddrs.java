@@ -1,14 +1,14 @@
 package item;
 
 public class WebAddrs {
-	private static String WebAddr;
+	private static item.WebAddr WebAddr;
 
-	public static String getWebAddr() {
+	public item.WebAddr getWebAddr() {
 		return WebAddr;
 	}
 
-	public static void setWebAddr(String webAddr) {
-		WebAddr = webAddr;
+	public static void setWebAddr(item.WebAddr webAddr2) {
+		WebAddr = webAddr2;
 	}
 
 }

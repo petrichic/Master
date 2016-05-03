@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import item.Item2B;
+import model.IAPDFirmSECReport;
 
 
 public class InsertItem2BDAO {
@@ -26,11 +27,10 @@ public class InsertItem2BDAO {
 			for (int i = 0; i < 50; i++){
 				// for (int i = 0; i < items2A.size(); i++) {
 				stmt = con.prepareStatement("Insert into mydb.item2B VALUES(?,?,?,?,?)");
-				stmt.setInt(1, i + 1);
-				stmt.setString(2, items2B.get(i).getQ2B1());
-				stmt.setString(3, items2B.get(i).getQ2B2());
-				stmt.setString(4, items2B.get(i).getQ2B3());;
-				stmt.setInt(5, i + 1);
+				stmt.setInt(1, 0);
+				stmt.setString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem2B().getQ2B1());
+				stmt.setString(3, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem2B().getQ2B2());
+				stmt.setString(4, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem2B().getQ2B3());
 				stmt.executeUpdate();
 
 			}

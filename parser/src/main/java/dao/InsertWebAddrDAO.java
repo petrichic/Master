@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import item.WebAddr;
+import model.IAPDFirmSECReport;
 
 
 public class InsertWebAddrDAO {
@@ -24,11 +25,9 @@ public class InsertWebAddrDAO {
 			con = DriverManager.getConnection(url, user, password);
 
 			for (int i = 0; i < 50; i++) {
-				// for (int i = 0; i < webaddrs.size(); i++) {
-				stmt = con.prepareStatement("Insert into mydb.webaddr VALUES(?,?,?)");
-				stmt.setInt(1, i + 1);
-				stmt.setString(2, webaddrs.get(i).getEmail());
-				stmt.setInt(3, i + 1);
+				stmt = con.prepareStatement("Insert into mydb.states VALUES(?,?,?)");
+				stmt.setInt(1, 0);
+				//stmt.setNString(2, IAPDFirmSECReport.getFirms().getListFirms().get(i).getFormInfo().getPart1A().getItem1().getWebAddrs().getWebAddr());
 				stmt.executeUpdate();
 
 			}
