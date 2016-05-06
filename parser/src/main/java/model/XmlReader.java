@@ -14,7 +14,7 @@ import org.xml.sax.SAXException;
  
 public class XmlReader {
  
-    public static IAPDFirmSECReport main(String[] args) {
+    public static void main(String[] args) {
     	IAPDFirmSECReport iAPDFirmSECReport = new IAPDFirmSECReport();
 		Firms firms1 = new Firms();
     	try {
@@ -25,8 +25,8 @@ public class XmlReader {
 			Document document = db.parse("src/main/resources/IA_FIRM_SEC_Feed_01_25_2016.xml");
 
 			Element root = document.getDocumentElement();
-			Table ob = new Table();
-			ArrayList<Firm> firms = ob.firmsBuilder(root);
+			Table tb = new Table();
+			ArrayList<Firm> firms = tb.firmsBuilder(root);
 			firms1.setListFirms(firms);
 			iAPDFirmSECReport.setFirms(firms1);
 		} catch (SAXException e) {
@@ -36,7 +36,7 @@ public class XmlReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return iAPDFirmSECReport;
+		return;
     }
  
 }

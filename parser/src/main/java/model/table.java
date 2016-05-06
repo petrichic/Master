@@ -106,14 +106,14 @@ public  ArrayList<Firm> firmsBuilder(Element root) throws SAXException, IOExcept
 		item1.setWebAddrs(webAddrs);
 		WebAddrs.setWebAddr(webAddr);
 
-		Item1 items11 = new Item1();
+		Item1 items1 = new Item1();
 		Element item1Element = (Element) firmNodes.item(i).getChildNodes().item(13).getChildNodes().item(1)
 				.getChildNodes().item(3);
-		items11.setQ1I(item1Element.getAttribute("Q1I"));
-		items11.setQ1M(item1Element.getAttribute("Q1M"));
-		items11.setQ1N(item1Element.getAttribute("Q1N"));
-		items11.setQ1O(item1Element.getAttribute("Q1O"));
-		firm.getFormInfo().getPart1A().setItem1(items11);
+		items1.setQ1I(item1Element.getAttribute("Q1I"));
+		items1.setQ1M(item1Element.getAttribute("Q1M"));
+		items1.setQ1N(item1Element.getAttribute("Q1N"));
+		items1.setQ1O(item1Element.getAttribute("Q1O"));
+		firm.getFormInfo().getPart1A().setItem1(items1);
 
 		Item2A item2A = new Item2A();
 		Element item2AElement = (Element) firmNodes.item(i).getChildNodes().item(13).getChildNodes().item(1)
@@ -133,9 +133,9 @@ public  ArrayList<Firm> firmsBuilder(Element root) throws SAXException, IOExcept
 		item2A.setQ2A13(item2AElement.getAttribute("Q2A13"));
 		firm.getFormInfo().getPart1A().setItem2A(item2A);
 
-		Item2B item2B = new Item2B();
+		/*Item2B item2B = new Item2B();
 		Element item2BElement = (Element) firmNodes.item(i).getChildNodes().item(14).getChildNodes().item(1)
-				.getChildNodes().item(3);
+				.getChildNodes().item(4);
 		item2B.setQ2B1(item2BElement.getAttribute("Q2B1"));
 		item2B.setQ2B2(item2BElement.getAttribute("Q2B2"));
 		item2B.setQ2B3(item2BElement.getAttribute("Q2B3"));
@@ -145,7 +145,7 @@ public  ArrayList<Firm> firmsBuilder(Element root) throws SAXException, IOExcept
 		Element item3AElement = (Element) firmNodes.item(i).getChildNodes().item(15).getChildNodes().item(1)
 				.getChildNodes().item(3);
 		item3A.setOrgFormNm(item3AElement.getAttribute("OrgFormNm"));
-		firm.getFormInfo().getPart1A().setItem3A(item3A);
+		firm.getFormInfo().getPart1A().setItem3A(item3A);*/
 
 	}
 
