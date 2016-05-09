@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace = "States">
+
+   <insert id = "insert" parameterType = "States">
+      INSERT INTO states (rgltrCd, st, dt, info_id) VALUES (#{rgltrCd}, #{st}, #{dt}, #{info_id});
+			
+      <selectKey keyProperty = "id_states" resultType = "int" order = "AFTER">
+         select last_insert_id() as id
+      </selectKey>   
+			
+   </insert>
+    	
+</mapper>
